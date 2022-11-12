@@ -334,14 +334,13 @@ endfunction
 " s:restore_mapping() {{{2
 function! s:restore_mapping(mapping)
   if !empty(a:mapping)
-    execute printf('%s %s%s%s%s %s %s',
+    execute printf('%s %s%s%s%s %s',
           \ (a:mapping.noremap ? 'cnoremap' : 'cmap'),
           \ (a:mapping.silent  ? '<silent>' : ''    ),
           \ (a:mapping.buffer  ? '<buffer>' : ''    ),
           \ (a:mapping.nowait  ? '<nowait>' : ''    ),
           \ (a:mapping.expr    ? '<expr>'   : ''    ),
-          \  a:mapping.lhs,
-          \  substitute(a:mapping.rhs, '\c<sid>', '<SNR>'.a:mapping.sid.'_', 'g'))
+          \  a:mapping.lhs)
   endif
 endfunction
 
